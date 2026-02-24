@@ -1,8 +1,8 @@
 ﻿#include <stdio.h>
 
 // Рекурсивна функція для обчислення варіантів
-long long countWaysRecursive(int );
-long long countWaysCycle(int );
+double countWaysRecursive(int );
+double countWaysCycle(int );
 void printWays(int);
 
 int main() {
@@ -12,7 +12,7 @@ int main() {
     return 0;
 }
 
-long long countWaysRecursive(int n) {
+double countWaysRecursive(int n) {
     // Базові випадки (зупинка рекурсії)
     if (n <= 0) return 0;
     if (n == 1) return 1;
@@ -25,16 +25,16 @@ long long countWaysRecursive(int n) {
         countWaysRecursive(n - 3);
 }
 
-long long countWaysCycle(int n) {
+double countWaysCycle(int n) {
     if (n <= 0) return 0;
-    if (n == 1) return 1;
-    if (n == 2) return 2;
-    if (n == 3) return 4;
+    if (n == 1) return 1.0;
+    if (n == 2) return 2.0;
+    if (n == 3) return 4.0;
 
-    long long first = 1;  // f(1)
-    long long second = 2; // f(2)
-    long long third = 4;  // f(3)
-    long long current = 0;
+    double first = 1.0;  // f(1)
+    double second = 2.0; // f(2)
+    double third = 4.0;  // f(3)
+    double current = 0;
 
     for (int i = 4; i <= n; i++) {
         current = first + second + third;
@@ -51,8 +51,8 @@ void printWays(int IsCycle) {
     printf("--------------------------------\n");
     printf("N\t|Values\n");
     printf("--------------------------------\n");
-    for (int i = 1; i <= 72; i++) {
-        printf("%d\t|%lld\n", i, IsCycle == 1 ? countWaysCycle(i): countWaysRecursive(i));
+    for (int i = 1; i <= 5000; i++) {
+        printf("%d\t|%lf\n", i, IsCycle == 1 ? countWaysCycle(i): countWaysRecursive(i));
     }
 	printf("\n");
 }
