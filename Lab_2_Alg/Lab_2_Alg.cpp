@@ -51,7 +51,7 @@ void printWays(int IsCycle) {
     printf("--------------------------------\n");
     printf("N\t|Values\n");
     printf("--------------------------------\n");
-    for (int i = 1; i <= 5000; i++) {
+    for (int i = 1; i <= 1166; i++) {
         printf("%d\t|%lf\n", i, IsCycle == 1 ? countWaysCycle(i): countWaysRecursive(i));
     }
 	printf("\n");
